@@ -49,18 +49,15 @@ var EmployeeView = function(employee) {
             alert("Error = " + contactError.code);
         };
 
-        // create a new contact object
         var contact = navigator.contacts.create();
         contact.displayName = "Plumber";
-        contact.nickname = "Plumber";            // specify both to support all devices
+        contact.nickname = "Plumber";           
 
-        // populate some fields
         var name = new ContactName();
         name.givenName = "Jane";
         name.familyName = "Doe";
         contact.name = name;
 
-        // save to device
         contact.save(onSuccess,onError);
         return false;
 
