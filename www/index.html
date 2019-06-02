@@ -26,7 +26,7 @@
 
     <script id="employee-tpl" type="text/x-handlebars-template">
     <div class='header'><a href='#' class="button header-button header-button-left">Back</a><h1>Details</h1></div>
-    <div class='details'>
+    <div class='details' data-employee-id="{{this.id}}">
         <img  class="employee-image" src="img/{{firstName}}_{{lastName}}.jpg" onError="this.src='img/unknown.jpg';"  alt="..." />
         <h1>{{firstName}} {{lastName}}</h1>
         <h2>{{title}}</h2>
@@ -34,20 +34,40 @@
         <ul>
             <li><a href="tel:{{officePhone}}">Домашний<br/>{{officePhone}}</a></li>
             <li><a href="tel:{{cellPhone}}">Мобильный<br/>{{cellPhone}}</a></li>
-            <li><a href="sms:{{cellPhone}}">SMS<br/>{{cellPhone}}</a></li>
+            <li><a href="{{email}}">Мобильный<br/>{{cellPhone}}</a></li>
             <li><a href="#" class="add-location-btn">Местоположение</a></li>
             <li><a href="#" class="add-contact-btn">Добавить в телефон</a></li>
             <li><a href="#" class="change-pic-btn">Изменить картинку</a></li>
-
+            <li><a href="#edit/{{this.id}}" class="change-profile-btn" >Изменить профиль</a></li>
+            <li><a href="#" class="delete-profile-btn" >Удалить профиль</a></li>
         </ul>
     </div>
-</script>
+    </script>
+
+    <script id="edit-tpl" type="text/x-handlebars-template">
+        <div class='header'><a href='#' class="button header-button header-button-left">Back</a><h1>Изменить контакт</h1></div>
+        <div class='details'>
+            <div class="edit-block">
+            <ul employee-id="{{id}}">
+                <li><br>Имя<br/><input type="text" placeholder="{{firstName}}" id="firstName"></li>
+                <li><br>Фамилия<br/><input type="text" placeholder="{{lastName}}" id="lastName"></li>
+                <li><br>Должность<br/><input type="text" placeholder="{{title}}" id="title"></li>
+                <li><br>Рабочий телефон<br/><input type="text" placeholder="{{officePhone}}" id="officePhone"></li>
+                <li><br>Мобильный<br/><input type="text" placeholder="{{cellPhone}}" id="cellPhone"></li>
+                <li><br>Email<br/><input type="text" placeholder="{{email}}" id="email"></li>
+                <li><a href="#" class="save-profile-btn">Сохранить изменения</a></li>
+            </ul>
+        </div>
+        </div>
+    </script>
+
     <script src="phonegap.js"></script>
     <script src="lib/jquery-1.8.2.min.js"></script>
     <script src="js/storage/memory-store.js"></script>
-
+    
     <script src="js/HomeView.js"></script>
     <script src="js/EmployeeView.js"></script>
+    <script src="js/EditEmployeeView.js"></script>
     <script src="js/main.js"></script>
 
 </body>

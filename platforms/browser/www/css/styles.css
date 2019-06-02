@@ -229,3 +229,7 @@ li>a.tappable-active {
     -webkit-transition-duration: .375s;
     -o-transition-duration: .375s;
 }
+.edit-block li{
+    display: inline-block;
+    padding: 10px;
+}

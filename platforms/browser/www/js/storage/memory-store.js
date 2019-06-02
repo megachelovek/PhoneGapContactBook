@@ -5,6 +5,7 @@ var MemoryStore = function(successCallback, errorCallback) {
             var fullName = element.firstName + " " + element.lastName;
             try {
                 searchKey.toLowerCase()
+                callback="";
             } catch (err) {
                 return 1;
             }
@@ -26,10 +27,58 @@ var MemoryStore = function(successCallback, errorCallback) {
         callLater(callback, employee);
     }
 
+    this.addEmployee = function(firstName,lastName,title,cellPhone,officePhone,email){
+        var newContact = { 
+            id: this.employees.length+1,
+            firstName: firstName, 
+            lastName: lastName, 
+            title :title,
+            managerId: 0,
+            city: "Samara",
+            cellPhone: cellPhone, 
+            officePhone,officePhone,
+            email: email 
+            }; 
+            this.employees.push(newContact);
+    }
+
+    this.editEmployee = function(idEdit,firstNameNew,lastNameNew,titleNew,cellPhoneNew,officePhoneNew,emailNew){
+        var employee = this.employees.find(item => item.id === idEdit);
+        var indexEdit = targetIndex = this.employees.findIndex(item => item.id === idEdit);
+        var firstNameEdit = firstNameNew ? firstNameNew : employee.firstName;
+        var lastNameEdit = firstNameNew ? lastNameNew : employee.lastName;
+        var titleEdit = firstNameNew ? titleNew : employee.title;
+        var cellPhoneEdit = firstNameNew ? cellPhoneNew : employee.cellPhone;
+        var officePhoneEdit = firstNameNew ? officePhoneNew : employee.officePhone;
+        var emailEdit = firstNameNew ? emailNew : employee.email;
+
+        var newContact = { 
+            id: this.employees.length+1,
+            firstName: firstNameEdit, 
+            lastName: lastNameEdit, 
+            title :titleEdit,
+            managerId: 0,
+            city: "Samara",
+            cellPhone: cellPhoneEdit, 
+            officePhone,officePhoneEdit,
+            email: emailEdit 
+            }; 
+        this.employees[indexEdit] = newContact;
+    }
+    this.deleteEmployee = function(idEdit){
+        this.employees.splice(idEdit, 1);
+    }
+
     var callLater = function(callback, data) {
         if (callback) {
             setTimeout(function() {
-                callback(data);
+                try{
+                    callback(data);
+                }
+                catch{
+
+                }
+                
             });
         }
     }

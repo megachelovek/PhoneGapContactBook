@@ -42,14 +42,14 @@ var WebSqlStore = function(successCallback, errorCallback) {
 
     this.addSampleData = function(tx, employees) {
         var employees = [
-            { "id": 1, "firstName": "Anton", "lastName": "Tets1", "title": "Student", "managerId": 0, "city": "Samara", "cellPhone": "1232131321", "officePhone": "212444448887", "email": "sdfsdfsdf@gmail.com" },
-            { "id": 2, "firstName": "Sasha", "lastName": "Petrov", "title": "Student", "managerId": 1, "city": "Samara", "cellPhone": "1232131321", "officePhone": "570444444567", "email": "sdfsdfsdf@gmail.com" },
-            { "id": 3, "firstName": "Test2", "lastName": "test2", "title": "Student", "managerId": 2, "city": "Samara", "cellPhone": "1232131321", "officePhone": "570444448963", "email": "sdfsdfsdf@gmail.com" },
-            { "id": 4, "firstName": "Sergey", "lastName": "Ivanov", "title": "Student", "managerId": 2, "city": "Samara", "cellPhone": "1232131321", "officePhone": "570444445741", "email": "sdfsdfsdf@gmail.com" },
-            { "id": 5, "firstName": "Ivan", "lastName": "Petrov", "title": "Student", "managerId": 2, "city": "Samara", "cellPhone": "1232131321", "officePhone": "570444447474", "email": "sdfsdfsdf@gmail.com" },
-            { "id": 6, "firstName": "Sergey", "lastName": "Vasiliev", "title": "Student", "managerId": 2, "city": "Samara", "cellPhone": "1232131321", "officePhone": "570444443232", "email": "sdfsdfsdf@gmail.com" },
-            { "id": 7, "firstName": "Vanya2", "lastName": "Ivanov", "title": "Teacher", "managerId": 6, "city": "Moscow", "cellPhone": "1232131321", "officePhone": "570444442525", "email": "sdfsdfsdf@gmail.com" },
-            { "id": 8, "firstName": "Sergey2", "lastName": "Petrov", "title": "Teacher", "managerId": 6, "city": "Moscow", "cellPhone": "12321313219999", "officePhone": "570444443333", "email": "sdfsdfsdf@gmail.com" },
+            { "id": 1, "firstName": "222Anton", "lastName": "Tets1", "title": "Student", "managerId": 0, "city": "Samara", "cellPhone": "1232131321", "officePhone": "212444448887", "email": "sdfsdfsdf@gmail.com" },
+            { "id": 2, "firstName": "222Sasha", "lastName": "Petrov", "title": "Student", "managerId": 1, "city": "Samara", "cellPhone": "1232131321", "officePhone": "570444444567", "email": "sdfsdfsdf@gmail.com" },
+            { "id": 3, "firstName": "2222Test2", "lastName": "test2", "title": "Student", "managerId": 2, "city": "Samara", "cellPhone": "1232131321", "officePhone": "570444448963", "email": "sdfsdfsdf@gmail.com" },
+            { "id": 4, "firstName": "2222Sergey", "lastName": "Ivanov", "title": "Student", "managerId": 2, "city": "Samara", "cellPhone": "1232131321", "officePhone": "570444445741", "email": "sdfsdfsdf@gmail.com" },
+            { "id": 5, "firstName": "2222Ivan", "lastName": "Petrov", "title": "Student", "managerId": 2, "city": "Samara", "cellPhone": "1232131321", "officePhone": "570444447474", "email": "sdfsdfsdf@gmail.com" },
+            { "id": 6, "firstName": "2222Sergey", "lastName": "Vasiliev", "title": "Student", "managerId": 2, "city": "Samara", "cellPhone": "1232131321", "officePhone": "570444443232", "email": "sdfsdfsdf@gmail.com" },
+            { "id": 7, "firstName": "2222Vanya2", "lastName": "Ivanov", "title": "Teacher", "managerId": 6, "city": "Moscow", "cellPhone": "1232131321", "officePhone": "570444442525", "email": "sdfsdfsdf@gmail.com" },
+            { "id": 8, "firstName": "2222Sergey2", "lastName": "Petrov", "title": "Teacher", "managerId": 6, "city": "Moscow", "cellPhone": "12321313219999", "officePhone": "570444443333", "email": "sdfsdfsdf@gmail.com" },
             { "id": 9, "firstName": "2Test2", "lastName": "Vasechkin", "title": "Director", "managerId": 2, "city": "Moscow", "cellPhone": "57012321313216666", "officePhone": "570444448585", "email": "sdfsdfsdf@gmail.com" },
             { "id": 10, "firstName": "Sasha3", "lastName": "Ivanov", "title": "Director", "managerId": 4, "city": "Moscow", "cellPhone": "57012321313210", "officePhone": "570444449999", "email": "sdfsdfsdf@gmail.com" },
             { "id": 11, "firstName": "sss", "lastName": "ddd", "title": "Student", "managerId": 10, "city": "Moscow", "cellPhone": "5712321313218585", "officePhone": "570444441919", "email": "sdfsdfsdf@gmail.com" },
