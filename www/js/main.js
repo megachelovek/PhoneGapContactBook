@@ -29,7 +29,8 @@ var app = {
     route: function () {
         var self = this;
         var hash = window.location.hash;
-        if (!hash) {
+        var match = hash.split('/');
+        if (!hash || match[0] === "#main") {
             if (this.homePage) {
                 this.slidePage(this.homePage);
                 location.reload();
@@ -41,7 +42,7 @@ var app = {
             }
             return;
         }
-        var match = hash.split('/');
+        
         if (match[0] === "#employees") {
             this.store.findById(Number(match[1]), function (employee) {
                 self.slidePage(new EmployeeView(employee).render());
@@ -84,23 +85,27 @@ var app = {
             self.currentPage = page;
         });
     },
-    deleteEmployee: function(index){
+    deleteEmployee: function (index) {
         this.store.deleteEmployee(index);
     },
-    editEmployee:function(indexId,firstName,lastName,title,cellPhone,officePhone,email){
-        this.store.editEmployee(indexId,firstName,lastName,title,cellPhone,officePhone,email);
+    editEmployee: function (indexId, firstName, lastName, title, cellPhone, officePhone, email) {
+        this.store.editEmployee(indexId, firstName, lastName, title, cellPhone, officePhone, email);
     },
-    addEmployee:function(firstName,lastName,title,cellPhone,officePhone,email){
-        this.store.addEmployee(firstName,lastName,title,cellPhone,officePhone,email);
+    addEmployee: function (firstName, lastName, title, cellPhone, officePhone, email) {
+        this.store.addEmployee(firstName, lastName, title, cellPhone, officePhone, email);
     },
     initialize: function () {
         var self = this;
         this.detailsURL = /^#employees\/(\d{1,})/;
         this.registerEvents();
-        this.store = new MemoryStore(function () {
-            // $('body').html(new HomeView(self.store).render().el);
-            self.route();
-        });
+        var hash = window.location.hash;
+        var match = hash.split('/');
+        if (match[0] !=='#main') {
+            this.store = new MemoryStore(function () {
+                // $('body').html(new HomeView(self.store).render().el);
+                self.route();
+            });
+        }
     }
 
 };

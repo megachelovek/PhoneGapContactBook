@@ -11,42 +11,18 @@ var EditEmployeeView = function (employee) {
     };
 
     this.saveContact = function () {
-        // event.preventDefault();
-        // console.log('saveToContacts');
-        // if (!navigator.contacts) {
-        //     app.showAlert("saveToContacts not supported", "Error");
-        //     return;
-        // }
-
-        // var contact = navigator.contacts.create();
-        // contact.name = {givenName: employee.firstName, familyName: employee.lastName};
-        // var phoneNumbers = [];
-        // phoneNumbers[0] = new ContactField('work', employee.officePhone, false);
-        // phoneNumbers[1] = new ContactField('mobile', employee.cellPhone, true); // preferred number
-        // contact.phoneNumbers = phoneNumbers;
-        // contact.save();
-        // return false;
-
-
-        // function onSuccess(contact) {
-        //     alert("Save Success");
-        // };
-
-        // function onError(contactError) {
-        //     alert("Error = " + contactError.code);
-        // };
         var hash = window.location.hash;
         var match = hash.split('/');
 
-        var firstName = $('#firstName');
-        var lastName = $('#lastName');
-        var title = $('#title');
-        var cellPhone= $('#officePhone');
-        var officePhone = $('#cellPhone');
-        var email = $('#email');
-        app.editEmployee(Number(match[1]),firstName.value,lastName.value,title.value,cellPhone.value,officePhone.value,email.value);
-        
-        return false;
+        var firstName = document.getElementById('firstName').value;
+        var lastName = document.getElementById('lastName').value;
+        var title = document.getElementById('title').value;
+        var cellPhone = document.getElementById('cellPhone').value;
+        var officePhone = document.getElementById('officePhone').value;
+        var email = document.getElementById('email').value;
+
+
+        app.editEmployee(Number(match[1]), firstName, lastName, title, cellPhone, officePhone, email);
 
     };
 

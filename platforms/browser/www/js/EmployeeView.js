@@ -64,7 +64,7 @@ var EmployeeView = function(employee) {
 
     }, 
     this.deleteEmployee= function(index){
-        this.app.deleteEmployee(index);
+        app.deleteEmployee(index);
     },
 
     this.changePicture = function(event) {

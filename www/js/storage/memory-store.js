@@ -1,11 +1,11 @@
-var MemoryStore = function(successCallback, errorCallback) {
+var MemoryStore = function (successCallback, errorCallback) {
 
-    this.findByName = function(searchKey, callback) {
-        var employees = this.employees.filter(function(element) {
+    this.findByName = function (searchKey, callback) {
+        var employees = this.employees.filter(function (element) {
             var fullName = element.firstName + " " + element.lastName;
             try {
                 searchKey.toLowerCase()
-                callback="";
+                callback = "";
             } catch (err) {
                 return 1;
             }
@@ -14,11 +14,11 @@ var MemoryStore = function(successCallback, errorCallback) {
         callLater(callback, employees);
     }
 
-    this.findById = function(id, callback) {
+    this.findById = function (id, callback) {
         var employees = this.employees;
         var employee = null;
         var l = employees.length;
-        for (var i=0; i < l; i++) {
+        for (var i = 0; i < l; i++) {
             if (employees[i].id === id) {
                 employee = employees[i];
                 break;
@@ -27,58 +27,44 @@ var MemoryStore = function(successCallback, errorCallback) {
         callLater(callback, employee);
     }
 
-    this.addEmployee = function(firstName,lastName,title,cellPhone,officePhone,email){
-        var newContact = { 
-            id: this.employees.length+1,
-            firstName: firstName, 
-            lastName: lastName, 
-            title :title,
+    this.addEmployee = function (firstName, lastName, title, cellPhone, officePhone, email) {
+        var newContact = {
+            id: this.employees.length + 1,
+            firstName: firstName,
+            lastName: lastName,
+            title: title,
             managerId: 0,
             city: "Samara",
-            cellPhone: cellPhone, 
-            officePhone,officePhone,
-            email: email 
-            }; 
-            this.employees.push(newContact);
+            cellPhone: cellPhone,
+            officePhone, officePhone,
+            email: email
+        };
+        this.employees.push(newContact);
     }
 
-    this.editEmployee = function(idEdit,firstNameNew,lastNameNew,titleNew,cellPhoneNew,officePhoneNew,emailNew){
+    this.editEmployee = function (idEdit, firstNameNew, lastNameNew, titleNew, cellPhoneNew, officePhoneNew, emailNew) {
         var employee = this.employees.find(item => item.id === idEdit);
-        var indexEdit = targetIndex = this.employees.findIndex(item => item.id === idEdit);
-        var firstNameEdit = firstNameNew ? firstNameNew : employee.firstName;
-        var lastNameEdit = firstNameNew ? lastNameNew : employee.lastName;
-        var titleEdit = firstNameNew ? titleNew : employee.title;
-        var cellPhoneEdit = firstNameNew ? cellPhoneNew : employee.cellPhone;
-        var officePhoneEdit = firstNameNew ? officePhoneNew : employee.officePhone;
-        var emailEdit = firstNameNew ? emailNew : employee.email;
-
-        var newContact = { 
-            id: this.employees.length+1,
-            firstName: firstNameEdit, 
-            lastName: lastNameEdit, 
-            title :titleEdit,
-            managerId: 0,
-            city: "Samara",
-            cellPhone: cellPhoneEdit, 
-            officePhone,officePhoneEdit,
-            email: emailEdit 
-            }; 
-        this.employees[indexEdit] = newContact;
+        employee.firstName = firstNameNew ? firstNameNew : employee.firstName;
+        employee.lastName = firstNameNew ? lastNameNew : employee.lastName;
+        employee.title = firstNameNew ? titleNew : employee.title;
+        employee.cellPhone = firstNameNew ? cellPhoneNew : employee.cellPhone;
+        employee.officePhone = firstNameNew ? officePhoneNew : employee.officePhone;
+        employee.email = firstNameNew ? emailNew : employee.email;
     }
-    this.deleteEmployee = function(idEdit){
+    this.deleteEmployee = function (idEdit) {
         this.employees.splice(idEdit, 1);
     }
 
-    var callLater = function(callback, data) {
+    var callLater = function (callback, data) {
         if (callback) {
-            setTimeout(function() {
-                try{
+            setTimeout(function () {
+                try {
                     callback(data);
                 }
                 catch{
 
                 }
-                
+
             });
         }
     }
