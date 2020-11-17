@@ -6,6 +6,7 @@ Tried Phone Gap as part of laboratory work at the university.
   
 ### Technology stack / Libraries
   - Angular
+  - PhoneGap
   - Typescript
   - HTML
   - CSS
